@@ -1,0 +1,17 @@
+name: Run Git Pull on Server
+run-name: Running Git Pull on Server
+on: push
+
+jobs:
+  pull-latest:
+    name: Pull Latest
+    runs-on: ubuntu-latest
+    steps:
+      - name: SSHing in and running command
+        uses: appleboy/ssh-action@v1.2.0
+        with:
+          host: ${{ secrets.ssh_host }}
+          username: ${{ secrets.ssh_username }}
+          password: ${{ secrets.ssh_password }}
+          port: 22
+          script: cd ~/blog && git pull
