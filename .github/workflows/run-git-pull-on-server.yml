@@ -14,4 +14,4 @@ jobs:
           username: ${{ secrets.ssh_username }}
           password: ${{ secrets.ssh_password }}
           port: 22
-          script: cd ~/blog && git pull && /home/james/gems/bin/jekyll build -d /var/www/html
+          script: whoami && cd ~/blog && git pull && /home/james/gems/bin/jekyll build -d /var/www/html
